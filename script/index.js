@@ -1,10 +1,10 @@
 const burgerBtn = document.querySelector('.burger');
 const burgerBtnSpan = document.querySelector('.burger span');
 const popup = document.querySelector('.popup');
-const navbarMenu = document.querySelector('.navbar__menu').cloneNode(1)
-const navbarBtn = document.querySelector('.btn--navbar').cloneNode(1)
-const nav = document.querySelector('nav')
-const body = document.querySelector('body')
+const navbarMenu = document.querySelector('.navbar__menu').cloneNode(1);
+const navbarBtn = document.querySelector('.btn--navbar').cloneNode(1);
+const nav = document.querySelector('nav');
+const body = document.querySelector('body');
 
 let burgerCounter = false;
 
@@ -17,21 +17,27 @@ const burgerClick = () => {
     // backdrop-filter: none;
     // background-color: #020A18;
     // `
-    body.style = 'overflow-y: hidden'
+    body.style = 'overflow-y: hidden';
   } else {
     burgerBtnSpan.style = 'display: block;';
     burgerCounter = false;
     // nav.style = 'background-color: $bgPrimary;'
-    body.style = 'overflow-y: auto'
+    body.style = 'overflow-y: auto';
   }
-  renderPopup()
+  renderPopup();
 };
 const renderPopup = () => {
   popup.classList.toggle('active');
   popup.appendChild(navbarMenu);
-  popup.appendChild(navbarBtn)
+  popup.appendChild(navbarBtn);
 };
-
-
-
 burgerBtn.addEventListener('click', burgerClick);
+
+// $(function () {
+//   $('.sliders').slick({
+//     dots: true,
+//     infinite: true,
+//     speed: 300,
+//     slidesToShow: 3,
+//   });
+// });
