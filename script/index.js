@@ -13,15 +13,10 @@ const burgerClick = () => {
   if (burgerCounter == false) {
     burgerBtnSpan.style = 'display: none;';
     burgerCounter = true;
-    // nav.style.cssText = `
-    // backdrop-filter: none;
-    // background-color: #020A18;
-    // `
     body.style = 'overflow-y: hidden';
   } else {
     burgerBtnSpan.style = 'display: block;';
     burgerCounter = false;
-    // nav.style = 'background-color: $bgPrimary;'
     body.style = 'overflow-y: auto';
   }
   renderPopup();
@@ -33,11 +28,37 @@ const renderPopup = () => {
 };
 burgerBtn.addEventListener('click', burgerClick);
 
-// $(function () {
-//   $('.sliders').slick({
-//     dots: true,
-//     infinite: true,
-//     speed: 300,
-//     slidesToShow: 3,
-//   });
-// });
+const swiper = new Swiper('.swiper', {
+  speed: 1000,
+  loop: true,
+  slidesPerView: 3,
+  spaceBetween: 30,
+  centeredSlides: true,
+  rewind: true,
+  breakpoint: {
+    200: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    480: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
+});
+function endlessSlides() {
+  setTimeout(function () {
+    swiper.slideNext();
+    endlessSlides();
+  }, 5000);
+}
+endlessSlides();
